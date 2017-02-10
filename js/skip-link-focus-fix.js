@@ -1,31 +1,4 @@
-/**
- * File skip-link-focus-fix.js.
- *
- * Helps with accessibility for keyboard only users.
- *
- * Learn more: https://git.io/vWdr2
- */
-(function() {
-	var isIe = /(trident|msie)/i.test( navigator.userAgent );
+/*! _jb 2017-02-10 */
 
-	if ( isIe && document.getElementById && window.addEventListener ) {
-		window.addEventListener( 'hashchange', function() {
-			var id = location.hash.substring( 1 ),
-				element;
-
-			if ( ! ( /^[A-z0-9_-]+$/.test( id ) ) ) {
-				return;
-			}
-
-			element = document.getElementById( id );
-
-			if ( element ) {
-				if ( ! ( /^(?:a|select|input|button|textarea)$/i.test( element.tagName ) ) ) {
-					element.tabIndex = -1;
-				}
-
-				element.focus();
-			}
-		}, false );
-	}
-})();
+!function(){var a=/(trident|msie)/i.test(navigator.userAgent);a&&document.getElementById&&window.addEventListener&&window.addEventListener("hashchange",function(){var a,b=location.hash.substring(1);/^[A-z0-9_-]+$/.test(b)&&(a=document.getElementById(b),a&&(/^(?:a|select|input|button|textarea)$/i.test(a.tagName)||(a.tabIndex=-1),a.focus()))},!1)}();
+//# sourceMappingURL=skip-link-focus-fix.js.map
