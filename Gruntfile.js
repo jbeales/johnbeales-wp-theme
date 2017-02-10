@@ -52,6 +52,26 @@ module.exports = function(grunt) {
             }
         },
 
+        replace: {
+		    dist: {
+			    options: {
+				    patterns: [
+				    	{
+				    		match: '_s',
+				    		replacement: '_jb'
+				    	}
+				    ]
+			    },
+			    files: [
+			    	{
+			    		expand: true, 
+			    		src: ['**/*.js', '**/*.sass', '**/*.css', '**/*.php', '**/*.txt', '**/*.md', '**/*.pot' ], 
+			    		dest: '.'
+			    	}
+			    ]
+		    }
+	    }
+
 		watch: {
 			scripts: {
 				files: ['js/src/*.js'],
