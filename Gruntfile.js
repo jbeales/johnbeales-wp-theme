@@ -60,17 +60,20 @@ module.exports = function(grunt) {
 				    		match: '_s',
 				    		replacement: '_jb'
 				    	}
-				    ]
+				    ],
+				    usePrefix: false
 			    },
 			    files: [
 			    	{
 			    		expand: true, 
-			    		src: ['**/*.js', '**/*.sass', '**/*.css', '**/*.php', '**/*.txt', '**/*.md', '**/*.pot' ], 
+			    		// './**/*.sass', './**/*.css', './**/*.php', './**/*.txt', './**/*.md', './**/*.pot',
+			    		//src: ['**/*.js', '**/*.css', '**/*.scss', '**/*.php', '**/*.txt', '**/*.md', '**/*.pot', '**/*.map', '!node_modules/**' ], 
+			    		src: ['**/*', '!node_modules/**', '!Gruntfile.js' ],
 			    		dest: '.'
 			    	}
 			    ]
 		    }
-	    }
+	    },
 
 		watch: {
 			scripts: {
@@ -134,6 +137,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-newer');
 	grunt.loadNpmTasks('grunt-browser-sync');
 	grunt.loadNpmTasks('grunt-postcss');
+	grunt.loadNpmTasks('grunt-replace');
 
 	// Default task(s).
 	grunt.registerTask('default', [ 'browserSync', 'watch'] );
