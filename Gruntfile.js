@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
 
 	var projectName = grunt.option('project-name'),
-		hostSafeProjectName = projectName.replace( /\w/g, '-' ),
+		hostSafeProjectName = projectName.replace( /\s/g, '-' ),
 		funcSafeProjectName = hostSafeProjectName.replace( '-', '_' );
 
 
@@ -115,7 +115,7 @@ module.exports = function(grunt) {
 				 files: [
 			    	{
 			    		src: 'Gruntfile.js',
-			    		dest: '.'
+			    		dest: 'Gruntfile.js'
 			    	}
 			    ]
 		    }
