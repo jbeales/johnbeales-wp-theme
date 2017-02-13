@@ -106,7 +106,7 @@ module.exports = function(grunt) {
 				    patterns: [
 				    	{
 				    		match: /"_jb\.dev"/,
-				    		replacement: hostSafeProjectName + '.dev'
+				    		replacement: '"' + hostSafeProjectName + '.dev"'
 				    	},
 				    ],
 				    usePrefix: false
