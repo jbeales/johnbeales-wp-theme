@@ -1,12 +1,13 @@
-[![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)
 
-_s
+
+_jb
 ===
 
-Hi. I'm a starter theme called `_s`, or `underscores`, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
+Hi. I'm a starter theme called `_jb`, or `underscore_jb`, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for. I'm based on Automattic's [_s (underscores)](http://underscores.me).
 
 My ultra-minimal CSS might make me look like theme tartare but that means less stuff to get in your way when you're designing your awesome theme. Here are some of the other more interesting things you'll find here:
 
+* Grunt tasks to process & minimize Sass & Javascript, and to run [Browsersync](https://browsersync.io/).
 * A just right amount of lean, well-commented, modern, HTML5 templates.
 * A helpful 404 template.
 * A custom header implementation in `inc/custom-header.php` just add the code snippet found in the comments of `inc/custom-header.php` to your `header.php` template.
@@ -20,25 +21,25 @@ My ultra-minimal CSS might make me look like theme tartare but that means less s
 Getting Started
 ---------------
 
-If you want to keep it simple, head over to http://underscores.me and generate your `_s` based theme from there. You just input the name of the theme you want to create, click the "Generate" button, and you get your ready-to-awesomize starter theme.
+_jb doesn't have a fancy website like [underscores.me](http://underscores.me) that will download a customized, renamed, version for you, but it does have a cool [Grunt](http://gruntjs.com/) task to rename the theme from _jb to whatever your project is actually called. 
 
-If you want to set things up manually, download `_s` from GitHub. The first thing you want to do is copy the `_s` directory and change the name to something else (like, say, `megatherium-is-awesome`), and then you'll need to do a five-step find and replace on the name in all the templates.
+After you clone or download `_jb` from GitHub. The first thing you want to do is copy the `_jb` directory and change the name to something else (like, say, `john-is-awesome`), and then you'll want to fire up your favourite terminal and get run the Grunt setup-project task:
 
-1. Search for `'_jb'` (inside single quotations) to capture the text domain.
-2. Search for `_jb_` to capture all the function names.
-3. Search for `Text Domain: _jb` in style.css.
-4. Search for <code>&nbsp;_s</code> (with a space before it) to capture DocBlocks.
-5. Search for `_jb-` to capture prefixed handles.
+1. `cd` into your new `john-is-awesome` directory
+2. Run `npm install` to install Grunt & any dependencies, (this assumes you have Node installed already).
+3. Run `grunt setup-project --project-name=john-is-awesome`
 
-OR
+Finally, update the stylesheet header in `style.css` and the links in `footer.php` with your own information. Next, update or delete this readme.
 
-* Search for: `'_jb'` and replace with: `'megatherium-is-awesome'`
-* Search for: `_jb_` and replace with: `megatherium_is_awesome_`
-* Search for: `Text Domain: _jb` and replace with: `Text Domain: megatherium-is-awesome` in style.css.
-* Search for: <code>&nbsp;_s</code> and replace with: <code>&nbsp;Megatherium_is_Awesome</code>
-* Search for: `_jb-` and replace with: `megatherium-is-awesome-`
+Auto-Building Sass and Javascript as you work
+---------------------------------------------
 
-Then, update the stylesheet header in `style.css` and the links in `footer.php` with your own information. Next, update or delete this readme.
+The Gruntfile has a default task that watches your Sass, Javascript, and PHP files to compile and minify the Sass and Javascript when they're changed, (don't worry - there are sourcemaps!), and update the browser with Browsersync when Sass, Javascript, or PHP gets changed. 
+
+The Browsersync task expects your project to be hosted on the local domain http://name-you-set-in-setup-above.dev, (it defaults to http://_jb.dev), so you might want to update your `hosts` file to point to whatever IP your development webserver lives on.
+
+Go Build Something Great
+------------------------
 
 Now you're ready to go! The next step is easy to say, but harder to do: make an awesome WordPress theme. :)
 
