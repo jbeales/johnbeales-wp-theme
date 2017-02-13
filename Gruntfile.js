@@ -1,5 +1,7 @@
 module.exports = function(grunt) {
 
+	var projectName = grunt.option('project-name');
+
 	// Project configuration.
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
@@ -57,27 +59,27 @@ module.exports = function(grunt) {
 			    options: {
 				    patterns: [
 				    	{
-				    		match: '\'_s\'',
-				    		replacement: '\'_jb\''
+				    		match: '\'_jb\'',
+				    		replacement: '\'_' + projectName + '\''
 				    	},
 				    	{
-				    		match: '_s_',
-				    		replacement: '_jb_'
-				    	},
-
-				    	{
-				    		match: 'Text Domain: _s',
-				    		replacement: 'Text Domain: _jb'
+				    		match: '_jb_',
+				    		replacement: '_' + projectName + '_'
 				    	},
 
 				    	{
-				    		match: ' _s',
-				    		replacement: ' _jb'
+				    		match: 'Text Domain: _jb',
+				    		replacement: 'Text Domain: _' + projectName + ''
 				    	},
 
 				    	{
-				    		match: '_s-',
-				    		replacement: '_jb-'
+				    		match: ' _jb',
+				    		replacement: ' _' + projectName + ''
+				    	},
+
+				    	{
+				    		match: '_jb-',
+				    		replacement: '_' + projectName + '-'
 				    	},
 
 
@@ -163,6 +165,7 @@ module.exports = function(grunt) {
 	// Default task(s).
 	grunt.registerTask('default', [ 'browserSync', 'watch'] );
 	grunt.registerTask('css', [ 'sass', 'postcss'] );
+	grunt.registerTask('setup-project', ['replace'] );
 
 
 
