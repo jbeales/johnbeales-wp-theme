@@ -68,7 +68,7 @@ module.exports = function(grunt) {
 			    		expand: true, 
 			    		// './**/*.sass', './**/*.css', './**/*.php', './**/*.txt', './**/*.md', './**/*.pot',
 			    		//src: ['**/*.js', '**/*.css', '**/*.scss', '**/*.php', '**/*.txt', '**/*.md', '**/*.pot', '**/*.map', '!node_modules/**' ], 
-			    		src: ['**/*', '!node_modules/**', '!Gruntfile.js' ],
+			    		src: ['**/*', '!node_modules/**', '!Gruntfile.js', '!**/*.png', '!**/*.jpg', '!**/*.gif' ],
 			    		dest: '.'
 			    	}
 			    ]
