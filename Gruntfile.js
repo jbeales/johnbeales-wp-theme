@@ -2,7 +2,7 @@ module.exports = function(grunt) {
 
 	var projectName = grunt.option('project-name'),
 		hostSafeProjectName = projectName.replace( /\w/g, '-' ),
-		funcSafeProjectName = hostSafeProjectName.replace( '-', '_' ),
+		funcSafeProjectName = hostSafeProjectName.replace( '-', '_' );
 
 
 	// Project configuration.
