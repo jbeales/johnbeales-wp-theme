@@ -91,16 +91,18 @@ module.exports = function(grunt) {
 			    		expand: true, 
 			    		// './**/*.sass', './**/*.css', './**/*.php', './**/*.txt', './**/*.md', './**/*.pot',
 			    		//src: ['**/*.js', '**/*.css', '**/*.scss', '**/*.php', '**/*.txt', '**/*.md', '**/*.pot', '**/*.map', '!node_modules/**' ], 
-			    		src: ['**/*', '!node_modules/**', '!Gruntfile.js', '!languages/_s.pot', '!**/*.png', '!**/*.jpg', '!**/*.gif' ],
+			    		src: ['**/*', '!node_modules/**', '!Gruntfile.js', '!**/*.png', '!**/*.jpg', '!**/*.gif' ],
 			    		dest: '.'
-			    	},
-
-			    	{
-			    		src: 'languages/_s.pot',
-			    		dest: 'languages/_jb.pot'
 			    	}
 			    ]
 		    }
+	    },
+
+	    rename: {
+	        setupPotfile: {
+	            src: 'languages/_jb.pot',
+	            dest: 'languages/_' + projectName + '.pot'
+	        },
 	    },
 
 		watch: {
@@ -166,11 +168,12 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-browser-sync');
 	grunt.loadNpmTasks('grunt-postcss');
 	grunt.loadNpmTasks('grunt-replace');
+	grunt.loadNpmTasks('grunt-rename');
 
 	// Default task(s).
 	grunt.registerTask('default', [ 'browserSync', 'watch'] );
 	grunt.registerTask('css', [ 'sass', 'postcss'] );
-	grunt.registerTask('setup-project', ['replace' ] );
+	grunt.registerTask('setup-project', ['replace', 'rename:setupPotfile' ] );
 
 
 
