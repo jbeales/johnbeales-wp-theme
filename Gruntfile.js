@@ -63,7 +63,7 @@ module.exports = function(grunt) {
 				    patterns: [
 				    	{
 				    		match: '\'_jb\'',
-				    		replacement: '\'' + projectName + '\''
+				    		replacement: '\'' + hostSafeProjectName + '\''
 				    	},
 				    	{
 				    		match: '_jb_',
@@ -72,7 +72,7 @@ module.exports = function(grunt) {
 
 				    	{
 				    		match: 'Text Domain: _jb',
-				    		replacement: 'Text Domain: ' + projectName + ''
+				    		replacement: 'Text Domain: ' + hostSafeProjectName + ''
 				    	},
 
 				    	{
@@ -82,7 +82,7 @@ module.exports = function(grunt) {
 
 				    	{
 				    		match: '_jb-',
-				    		replacement: projectName + '-'
+				    		replacement: hostSafeProjectName + '-'
 				    	},
 
 
@@ -124,7 +124,7 @@ module.exports = function(grunt) {
 	    rename: {
 	        setupPotfile: {
 	            src: 'languages/_jb.pot',
-	            dest: 'languages/_' + projectName + '.pot'
+	            dest: 'languages/' + hostSafeProjectName + '.pot'
 	        },
 	    },
 
