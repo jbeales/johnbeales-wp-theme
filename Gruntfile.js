@@ -57,9 +57,30 @@ module.exports = function(grunt) {
 			    options: {
 				    patterns: [
 				    	{
-				    		match: '_s',
-				    		replacement: '_jb'
-				    	}
+				    		match: '\'_s\'',
+				    		replacement: '\'_jb\''
+				    	},
+				    	{
+				    		match: '_s_',
+				    		replacement: '_jb_'
+				    	},
+
+				    	{
+				    		match: 'Text Domain: _s',
+				    		replacement: 'Text Domain: _jb'
+				    	},
+
+				    	{
+				    		match: ' _s',
+				    		replacement: ' _jb'
+				    	},
+
+				    	{
+				    		match: '_s-',
+				    		replacement: '_jb-'
+				    	},
+
+
 				    ],
 				    usePrefix: false
 			    },
