@@ -91,8 +91,13 @@ module.exports = function(grunt) {
 			    		expand: true, 
 			    		// './**/*.sass', './**/*.css', './**/*.php', './**/*.txt', './**/*.md', './**/*.pot',
 			    		//src: ['**/*.js', '**/*.css', '**/*.scss', '**/*.php', '**/*.txt', '**/*.md', '**/*.pot', '**/*.map', '!node_modules/**' ], 
-			    		src: ['**/*', '!node_modules/**', '!Gruntfile.js', '!**/*.png', '!**/*.jpg', '!**/*.gif' ],
+			    		src: ['**/*', '!node_modules/**', '!Gruntfile.js', '!languages/_s.pot', '!**/*.png', '!**/*.jpg', '!**/*.gif' ],
 			    		dest: '.'
+			    	},
+
+			    	{
+			    		src: 'languages/_s.pot',
+			    		dest: 'languages/_jb.pot'
 			    	}
 			    ]
 		    }
@@ -165,7 +170,7 @@ module.exports = function(grunt) {
 	// Default task(s).
 	grunt.registerTask('default', [ 'browserSync', 'watch'] );
 	grunt.registerTask('css', [ 'sass', 'postcss'] );
-	grunt.registerTask('setup-project', ['replace'] );
+	grunt.registerTask('setup-project', ['replace' ] );
 
 
 
