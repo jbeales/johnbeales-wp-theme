@@ -1,6 +1,9 @@
 module.exports = function(grunt) {
 
-	var projectName = grunt.option('project-name');
+	var projectName = grunt.option('project-name'),
+		hostSafeProjectName = projectName.replace( /\w/g, '-' ),
+		funcSafeProjectName = hostSafeProjectName.replace( '-', '_' ),
+
 
 	// Project configuration.
 	grunt.initConfig({
@@ -55,31 +58,31 @@ module.exports = function(grunt) {
         },
 
         replace: {
-		    dist: {
+		    setupMain: {
 			    options: {
 				    patterns: [
 				    	{
 				    		match: '\'_jb\'',
-				    		replacement: '\'_' + projectName + '\''
+				    		replacement: '\'' + projectName + '\''
 				    	},
 				    	{
 				    		match: '_jb_',
-				    		replacement: '_' + projectName + '_'
+				    		replacement: funcSafeProjectName + '_'
 				    	},
 
 				    	{
 				    		match: 'Text Domain: _jb',
-				    		replacement: 'Text Domain: _' + projectName + ''
+				    		replacement: 'Text Domain: ' + projectName + ''
 				    	},
 
 				    	{
 				    		match: ' _jb',
-				    		replacement: ' _' + projectName + ''
+				    		replacement: ' ' + funcSafeProjectName + ''
 				    	},
 
 				    	{
 				    		match: '_jb-',
-				    		replacement: '_' + projectName + '-'
+				    		replacement: projectName + '-'
 				    	},
 
 
@@ -92,6 +95,26 @@ module.exports = function(grunt) {
 			    		// './**/*.sass', './**/*.css', './**/*.php', './**/*.txt', './**/*.md', './**/*.pot',
 			    		//src: ['**/*.js', '**/*.css', '**/*.scss', '**/*.php', '**/*.txt', '**/*.md', '**/*.pot', '**/*.map', '!node_modules/**' ], 
 			    		src: ['**/*', '!node_modules/**', '!Gruntfile.js', '!**/*.png', '!**/*.jpg', '!**/*.gif' ],
+			    		dest: '.'
+			    	}
+			    ]
+		    },
+
+		    // Replace the hostname in the Browsersync config in gruntfile.
+		    setupGruntFile: {
+		    	options: {
+				    patterns: [
+				    	{
+				    		match: /"_jb\.dev"/,
+				    		replacement: hostSafeProjectName + '.dev'
+				    	},
+				    ],
+				    usePrefix: false
+				},
+
+				 files: [
+			    	{
+			    		src: 'Gruntfile.js',
 			    		dest: '.'
 			    	}
 			    ]
