@@ -1,8 +1,13 @@
 module.exports = function(grunt) {
 
 	var projectName = grunt.option('project-name'),
+		hostSafeProjectName,
+		funcSafeProjectName;
+
+	if( projectName && projectName.length > 0 ) {
 		hostSafeProjectName = projectName.replace( /\s/g, '-' ),
 		funcSafeProjectName = hostSafeProjectName.replace( '-', '_' );
+	}
 
 
 	// Project configuration.
@@ -175,9 +180,7 @@ module.exports = function(grunt) {
                 },
                 options: {
                     watchTask: true,
- 					proxy: {
-						host: "_jb.dev" // e.g., localhost.dev, wordpress.dev
-					},
+ 					proxy: "_jb.dev" // e.g., localhost.dev, wordpress.dev
                 }
             }
         }
