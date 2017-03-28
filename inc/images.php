@@ -25,3 +25,19 @@ function _jb_add_image_sizes( $basename, $base_width, $base_height, $crop, $widt
 		add_image_size( $basename . $width, $width, round( $width / $ratio ), $crop );
 	}
 }
+
+/**
+ * By default WordPress only includes image files up to 1600px wide in a srcset 
+ * attribute. For wider images we need to do better than that, so we're filtering
+ * that value here.
+ *
+ * This could be overridden again for individual images by setting a higher 
+ * priority for the filter.
+ * 
+ * @param  int    $width The width, in pixels, that WordPress thinks we should limit the srcset to.
+ * @return int           The modified width, in pixels, (5000, in our case).
+ */
+function _jb_allow_wide_srcset( $width ) {
+	return 5000;
+}
+add_filter( 'max_srcset_image_width', '_jb_allow_wide_srcset' );
