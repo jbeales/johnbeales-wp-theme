@@ -250,6 +250,7 @@ module.exports = function(grunt) {
 	// Default task(s).
 	grunt.registerTask('default', [ 'browserSync', 'watch'] );
 	grunt.registerTask('css', [ 'sass', 'postcss'] );
+	grunt.registerTask( 'build', ['sass', 'postcss', 'uglify'] );
 	grunt.registerTask('setup-project', ['replace:setupMain', 'rename:setupPotfile' ] );
 	grunt.registerTask('merge-upstream', ['replace:handlUpstreamMerge', 'rename:mergeUpstream'] )
 
