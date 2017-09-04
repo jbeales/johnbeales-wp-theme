@@ -105,6 +105,52 @@ module.exports = function(grunt) {
 			    ]
 		    },
 
+		    // For use when merging changes from the upstream _s project
+		    handlUpstreamMerge: {
+		    	
+			    options: {
+				    patterns: [
+				    	{
+				    		match: '\'_s\'',
+				    		replacement: '\'_jb\''
+				    	},
+				    	{
+				    		match: '_s_',
+				    		replacement: '_jb_'
+				    	},
+
+				    	{
+				    		match: 'Text Domain: _s',
+				    		replacement: 'Text Domain: jb'
+				    	},
+
+				    	{
+				    		match: ' _s',
+				    		replacement: ' _jb'
+				    	},
+
+				    	{
+				    		match: '_s-',
+				    		replacement: '_jb-'
+				    	},
+
+
+				    ],
+				    usePrefix: false
+			    },
+			    files: [
+			    	{
+			    		expand: true, 
+			    		// './**/*.sass', './**/*.css', './**/*.php', './**/*.txt', './**/*.md', './**/*.pot',
+			    		//src: ['**/*.js', '**/*.css', '**/*.scss', '**/*.php', '**/*.txt', '**/*.md', '**/*.pot', '**/*.map', '!node_modules/**' ], 
+			    		src: ['**/*', '!node_modules/**', '!Gruntfile.js', '!**/*.png', '!**/*.jpg', '!**/*.gif' ],
+			    		dest: '.'
+			    	}
+			    ]
+		    
+		    },
+
+		    
 		    // Replace the hostname in the Browsersync config in gruntfile.
 		    setupGruntFile: {
 		    	options: {
@@ -131,6 +177,11 @@ module.exports = function(grunt) {
 	            src: 'languages/_jb.pot',
 	            dest: 'languages/' + hostSafeProjectName + '.pot'
 	        },
+
+	        mergeUpstream: {
+	        	src: 'languages/_s.pot',
+	        	dest: 'languages/_jb.pot'
+	        }
 	    },
 
 		watch: {
@@ -199,8 +250,8 @@ module.exports = function(grunt) {
 	// Default task(s).
 	grunt.registerTask('default', [ 'browserSync', 'watch'] );
 	grunt.registerTask('css', [ 'sass', 'postcss'] );
-	grunt.registerTask('setup-project', ['replace', 'rename:setupPotfile' ] );
-
+	grunt.registerTask('setup-project', ['replace:setupMain', 'rename:setupPotfile' ] );
+	grunt.registerTask('merge-upstream', ['replace:handlUpstreamMerge', 'rename:mergeUpstream'] )
 
 
 	var fs = require('fs');
