@@ -1,14 +1,14 @@
 <?php
 /**
- * _jb functions and definitions
+ * johnbeales functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package _jb
+ * @package johnbeales
  */
 
 
-if ( ! function_exists( '_jb_setup' ) ) :
+if ( ! function_exists( 'johnbeales_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -16,14 +16,14 @@ if ( ! function_exists( '_jb_setup' ) ) :
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function _jb_setup() {
+	function johnbeales_setup() {
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on _jb, use a find and replace
-		 * to change '_jb' to the name of your theme in all the template files.
+		 * If you're building a theme based on johnbeales, use a find and replace
+		 * to change 'johnbeales' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( '_jb', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'johnbeales', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -45,7 +45,7 @@ if ( ! function_exists( '_jb_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', '_jb' ),
+			'menu-1' => esc_html__( 'Primary', 'johnbeales' ),
 		) );
 
 		/*
@@ -56,34 +56,17 @@ if ( ! function_exists( '_jb_setup' ) ) :
 			'search-form',
 			'comment-form',
 			'comment-list',
-			'gallery',
+	//		'gallery',
 			'caption',
 		) );
 
-		// Set up the WordPress core custom background feature.
-		add_theme_support( 'custom-background', apply_filters( '_jb_custom_background_args', array(
-			'default-color' => 'ffffff',
-			'default-image' => '',
-		) ) );
+		// 960 = 60em * 16px base font size
+		johnbeales_add_image_sizes( 'jb_content_image', 960, 960, false, [750, 640, 510, 400, 320] );
 
-		// Add theme support for selective refresh for widgets.
-		add_theme_support( 'customize-selective-refresh-widgets' );
-
-		/**
-		 * Add support for core custom logo.
-		 *
-		 * @link https://codex.wordpress.org/Theme_Logo
-		 */
-		add_theme_support( 'custom-logo', array(
-			'height'      => 250,
-			'width'       => 250,
-			'flex-width'  => true,
-			'flex-height' => true,
-		) );
 	}
 
 endif;
-add_action( 'after_setup_theme', '_jb_setup' );
+add_action( 'after_setup_theme', 'johnbeales_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -92,49 +75,44 @@ add_action( 'after_setup_theme', '_jb_setup' );
  *
  * @global int $content_width
  */
-function _jb_content_width() {
-	$GLOBALS['content_width'] = apply_filters( '_jb_content_width', 640 );
+function johnbeales_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'johnbeales_content_width', 640 );
 }
-add_action( 'after_setup_theme', '_jb_content_width', 0 );
+add_action( 'after_setup_theme', 'johnbeales_content_width', 0 );
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function _jb_widgets_init() {
+function johnbeales_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', '_jb' ),
+		'name'          => esc_html__( 'Sidebar', 'johnbeales' ),
 		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', '_jb' ),
+		'description'   => esc_html__( 'Add widgets here.', 'johnbeales' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
 }
-add_action( 'widgets_init', '_jb_widgets_init' );
+add_action( 'widgets_init', 'johnbeales_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
  */
-function _jb_scripts() {
-	wp_enqueue_style( '_jb-style', get_stylesheet_uri() );
+function johnbeales_scripts() {
+	wp_enqueue_style( 'johnbeales-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( '_jb-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'johnbeales-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
-	wp_enqueue_script( '_jb-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'johnbeales-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', '_jb_scripts' );
-
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
+add_action( 'wp_enqueue_scripts', 'johnbeales_scripts' );
 
 /**
  * Custom template tags for this theme.
@@ -147,11 +125,6 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/template-functions.php';
 
 /**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
-
-/**
  * Load Images file
  */
 require get_template_directory() . '/inc/images.php';
@@ -161,12 +134,5 @@ require get_template_directory() . '/inc/images.php';
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
-}
-
-/**
- * Load WooCommerce compatibility file.
- */
-if ( class_exists( 'WooCommerce' ) ) {
-	require get_template_directory() . '/inc/woocommerce.php';
 }
 

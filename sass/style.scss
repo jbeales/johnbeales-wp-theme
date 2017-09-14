@@ -1,5 +1,5 @@
 /*!
-Theme Name: _jb
+Theme Name: johnbeales
 Theme URI: http://johnbeales.com/
 Author: johnnyb
 Author URI: http://johnbeales.com/
@@ -7,13 +7,14 @@ Description: Hi. I'm a starter theme called <code>_jb</code>, or <em>underscores
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: _jb
-Tags: Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+Text Domain: johnbeales
+Tags: Tags: featured-images, threaded-comments, translation-ready
 
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
+johnbeales.com theme.
 
-_jb is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
+Based on _jb, which in turn is based on Underscores http://underscores.me/, 
+
+(C) 2017 John Beales.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 Normalizing styles have been helped along thanks to the fine work of
@@ -37,7 +38,6 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 # Content
 	## Posts and pages
 	## Comments
-# Infinite scroll
 # Media
 	## Captions
 	## Galleries
@@ -54,6 +54,16 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 # Typography
 --------------------------------------------------------------*/
 @import "typography/typography";
+
+/*--------------------------------------------------------------
+# Document Structure
+--------------------------------------------------------------*/
+@import "layout/structure";
+
+/*--------------------------------------------------------------
+# Page Layout
+--------------------------------------------------------------*/
+@import "layout/grid";
 
 /*--------------------------------------------------------------
 # Elements
@@ -94,11 +104,6 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 # Content
 --------------------------------------------------------------*/
 @import "site/site";
-
-/*--------------------------------------------------------------
-# Infinite scroll
---------------------------------------------------------------*/
-@import "modules/infinite-scroll";
 
 /*--------------------------------------------------------------
 # Media

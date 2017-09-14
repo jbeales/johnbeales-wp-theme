@@ -11,7 +11,7 @@
  * @param  int[]  $widths      An array of image widths that will be created as WP image sizes.
  * @return void
  */
-function _jb_add_image_sizes( $basename, $base_width, $base_height, $crop, $widths ) {
+function johnbeales_add_image_sizes( $basename, $base_width, $base_height, $crop, $widths ) {
 
 	$ratio = $base_width / $base_height;
 
@@ -37,7 +37,7 @@ function _jb_add_image_sizes( $basename, $base_width, $base_height, $crop, $widt
  * @param  int    $width The width, in pixels, that WordPress thinks we should limit the srcset to.
  * @return int           The modified width, in pixels, (5000, in our case).
  */
-function _jb_allow_wide_srcset( $width ) {
+function johnbeales_allow_wide_srcset( $width ) {
 	return 5000;
 }
-add_filter( 'max_srcset_image_width', '_jb_allow_wide_srcset' );
+add_filter( 'max_srcset_image_width', 'johnbeales_allow_wide_srcset' );

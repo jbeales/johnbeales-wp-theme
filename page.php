@@ -9,7 +9,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package _jb
+ * @package johnbeales
  */
 
 get_header(); ?>

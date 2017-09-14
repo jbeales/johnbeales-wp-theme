@@ -2,7 +2,7 @@
 /**
  * Functions which enhance the theme by hooking into WordPress
  *
- * @package _jb
+ * @package johnbeales
  */
 
 /**
@@ -11,7 +11,7 @@
  * @param array $classes Classes for the body element.
  * @return array
  */
-function _jb_body_classes( $classes ) {
+function johnbeales_body_classes( $classes ) {
 	// Adds a class of hfeed to non-singular pages.
 	if ( ! is_singular() ) {
 		$classes[] = 'hfeed';
@@ -19,14 +19,14 @@ function _jb_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', '_jb_body_classes' );
+add_filter( 'body_class', 'johnbeales_body_classes' );
 
 /**
  * Add a pingback url auto-discovery header for singularly identifiable articles.
  */
-function _jb_pingback_header() {
+function johnbeales_pingback_header() {
 	if ( is_singular() && pings_open() ) {
 		echo '<link rel="pingback" href="', esc_url( get_bloginfo( 'pingback_url' ) ), '">';
 	}
 }
-add_action( 'wp_head', '_jb_pingback_header' );
+add_action( 'wp_head', 'johnbeales_pingback_header' );

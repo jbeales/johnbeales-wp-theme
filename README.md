@@ -21,7 +21,7 @@ My ultra-minimal CSS might make me look like theme tartare but that means less s
 Getting Started
 ---------------
 
-_jb doesn't have a fancy website like [underscores.me](http://underscores.me) that will download a customized, renamed, version for you, but it does have a cool [Grunt](http://gruntjs.com/) task to rename the theme from _jb to whatever your project is actually called. 
+_jb doesn't have a fancy website like [underscores.me](http://underscores.me) that will download a customized, renamed, version for you, but it does have a cool [Grunt](http://gruntjs.com/) task to rename the theme from johnbeales to whatever your project is actually called. 
 
 After you clone or download `_jb` from GitHub. The first thing you want to do is copy the `_jb` directory and change the name to something else (like, say, `john-is-awesome`), and then you'll want to fire up your favourite terminal and get run the Grunt setup-project task:
 

@@ -4,7 +4,7 @@
  *
  * This file is centrally included from `wp-content/mu-plugins/wpcom-theme-compat.php`.
  *
- * @package _jb
+ * @package johnbeales
  */
 
 /**
@@ -12,7 +12,7 @@
  *
  * @global array $themecolors
  */
-function _jb_wpcom_setup() {
+function johnbeales_wpcom_setup() {
 	global $themecolors;
 
 	// Set theme colors for third party services.
@@ -26,4 +26,4 @@ function _jb_wpcom_setup() {
 		);
 	}
 }
-add_action( 'after_setup_theme', '_jb_wpcom_setup' );
+add_action( 'after_setup_theme', 'johnbeales_wpcom_setup' );

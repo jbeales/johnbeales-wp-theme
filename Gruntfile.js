@@ -231,7 +231,7 @@ module.exports = function(grunt) {
                 },
                 options: {
                     watchTask: true,
- 					proxy: "_jb.dev" // e.g., localhost.dev, wordpress.dev
+ 					proxy: "johnbeales.dev" // e.g., localhost.dev, wordpress.dev
                 }
             }
         }
