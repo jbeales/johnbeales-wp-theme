@@ -1,8 +1,10 @@
 
 
 .site-header,
+.entry-footer,
 .site-content,
 .site-content .site-main article,
+.fullwidth-embed,
 .site-footer {
 
 	display:grid;
@@ -10,7 +12,6 @@
 	
 	grid-template-rows: auto;
 	grid-gap: 1rem;
-
 
 }
 
@@ -45,11 +46,32 @@
 
 			grid-column: 1 / span $grid-columns;
 
+			.fullwidth-embed {
+				grid-column: 1 / span $grid-columns;
+
+
+				// Weird hack: WP outputs a <p> around the <script> tag for
+				// Twitter oEmbeds. This makes it so it doesn't have any
+				// effect on the page layout.
+				position:relative;
+				& > p {
+					margin:0;
+					position:absolute;
+					bottom:0;
+				}
+			}
+
 			h1,h2,h3,h4,h5,h6,
 			p,
-			blockquote {
+			blockquote,
+			twitterwidget,
+			& > code,
+			dl,
+			ul {
 				grid-column: 2 / span ($grid-columns - 2 );
 			}
+
+
 		}
 
 	}
@@ -73,6 +95,7 @@
 	
 	.site-content .site-main article {
 		.entry-header,
+		.entry-footer,
 		.entry-content h1,
 		.entry-content h2,
 		.entry-content h3,
@@ -80,7 +103,11 @@
 		.entry-content h5,
 		.entry-content h6,
 		.entry-content p,
-		.entry-content blockquote, {
+		.entry-content twitterwidget,
+		.entry-content blockquote,
+		.entry-content > code,
+		.entry-content dl,
+		.entry-content ul {
 			grid-column: 3 / span ($grid-columns - 4 );
 		}
 

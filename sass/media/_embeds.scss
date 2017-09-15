@@ -1,0 +1,20 @@
+
+.fullwidth-embed {
+	background: $color__background-embed;
+
+}
+
+.entry-content blockquote.twitter-tweet {
+	text-align:center;
+}
+
+
+@media (min-width: 60rem ) {
+
+
+	.entry-content twitterwidget,
+	.entry-content blockquote.twitter-tweet {
+		justify-self: center;
+	}
+
+}

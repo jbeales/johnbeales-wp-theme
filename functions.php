@@ -76,7 +76,7 @@ add_action( 'after_setup_theme', 'johnbeales_setup' );
  * @global int $content_width
  */
 function johnbeales_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'johnbeales_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'johnbeales_content_width', 960 );
 }
 add_action( 'after_setup_theme', 'johnbeales_content_width', 0 );
 
@@ -128,6 +128,11 @@ require get_template_directory() . '/inc/template-functions.php';
  * Load Images file
  */
 require get_template_directory() . '/inc/images.php';
+
+/**
+ * Load functions for embedded media.
+ */
+require get_template_directory() . '/inc/embeds.php';
 
 /**
  * Load Jetpack compatibility file.
