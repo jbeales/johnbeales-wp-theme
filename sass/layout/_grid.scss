@@ -1,15 +1,24 @@
 
+%layout-container {
+	display:grid;
+	grid-template-columns: 0.5fr repeat( $grid-columns - 2, 1fr ) 0.5fr;
+	grid-gap: 0.25rem;
+}
+
+
+
+%full-width-column {
+	grid-column: 2 / span 10;
+}
+
 
 body {
-	display:grid;
-	grid-template-columns: repeat( $grid-columns, 1fr );
-
-	grid-gap: 1rem;
+	@extend %layout-container;
 
 	grid-template-areas:
-	". header header header header header header header header header header ."
-	". content content content content content content content content content content ."
-	". footer footer footer footer footer footer footer footer footer footer ."
+	"header header header header header header header header header header header header"
+	"content content content content content content content content content content content content"
+	"footer footer footer footer footer footer footer footer footer footer footer footer"
 }
 
 
@@ -17,8 +26,7 @@ body {
 .site-header,
 .site-footer {
 
-	display:grid;
-	grid-gap: 0.25rem 1rem;
+	@extend %layout-container;
 
 }
 
@@ -28,13 +36,12 @@ body {
 
 .site-header {
 
-	display:grid;
-	grid-template-columns: repeat( $grid-columns - 2, 1fr );
+	grid-gap:1em 1vw;
 
 	grid-area: header;
 
 	.site-branding {
-		grid-column: 1 / span 10;
+		@extend %full-width-column;
 	}
 
 
@@ -53,20 +60,24 @@ body {
 	max-width: 100%; // otherwise it expands beyond it's grid area in FF.
 
 	article {
+		
+		@extend %layout-container;
+
+		.entry-header,
+		.entry-content,
+		.entry-footer {
+			@extend %full-width-column;
+			overflow:hidden;
+			max-width: $text__line-length;
+		}
+
+
 		.entry-content {
 			& > blockquote,
 			& > code {
 				overflow:scroll;
 				max-width: 100%;
 			}
-		}
-	}
-	
-	
-	.site-main article {
-		
-
-		.entry-content {
 
 			.fullwidth-embed {
 
@@ -81,6 +92,16 @@ body {
 					bottom:0;
 				}
 			}
+		}
+	}
+	
+	
+	.site-main article {
+		
+
+		.entry-content {
+
+			
 
 			
 
@@ -92,42 +113,62 @@ body {
 
 .site-footer {
 	grid-area:footer;
+
+	.site-info {
+		@extend %full-width-column;
+	}
 }
 
-@media (min-width: 60rem ) {
+@include large-handheld {
 
-	body {
-		grid-template-areas:
-	". . header header header header header header header header . . "
-	". . content content content content content content content content . . "
-	". . footer footer footer footer footer footer footer footer . . "
 
+	%layout-container {
+		//isplay:grid;
+		grid-template-columns: repeat( $grid-columns, 1fr );
+		//grid-gap: 0.25rem;
 	}
 
 
 
+
 	.site-header {
-		grid-template-columns: repeat( ($grid-columns - 4), 1fr );
 
 		.site-branding {
-			grid-column:1 / span 3;
+			grid-column:2 / span 4;
 		}
 
 
 		.main-navigation {
-			grid-column: 5 / span 4;
+			grid-column: 6 / span 6;
 			justify-self:end;
-
+			
 			.menu-main-nav-container {
 				height:100%;
 			}
 
 			
 		}
+
 	}
 
-	
-	
+}
+
+
+@include desktop {
+
+	%full-width-column {
+		grid-column: 3 / span 8;
+	}
+
+	.site-header {
+		.site-branding {
+			grid-column:3 / span 3;
+		}
+
+		.main-navigation {
+			grid-column: 6 / span 5;
+		}
+	}
 	
 }
 

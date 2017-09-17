@@ -15,15 +15,7 @@
 
 <footer id="colophon" class="site-footer">
 	<div class="site-info">
-		<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'johnbeales' ) ); ?>"><?php
-			/* translators: %s: CMS name, i.e. WordPress. */
-			printf( esc_html__( 'Proudly powered by %s', 'johnbeales' ), 'WordPress' );
-		?></a>
-		<span class="sep"> | </span>
-		<?php
-			/* translators: 1: Theme name, 2: Theme author. */
-			printf( esc_html__( 'Theme: %1$s by %2$s.', 'johnbeales' ), 'johnbeales', '<a href="http://johnbeales.com/" rel="designer">John Beales</a>' );
-		?>
+		<p>Generally &copy; 2005 onwards John Beales. See the <a href="/about/">about page</a> for full details.</p>
 	</div><!-- .site-info -->
 </footer><!-- #colophon -->
 

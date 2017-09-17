@@ -22,3 +22,17 @@
 @mixin clearfix-after() {
 	clear: both;
 }
+
+
+@mixin large-handheld {
+
+	@media (min-width: 37.5rem) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media (min-width: 60rem) {
+		@content;
+	}
+}

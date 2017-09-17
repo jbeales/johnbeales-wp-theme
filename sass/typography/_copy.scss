@@ -43,3 +43,9 @@ mark, ins {
 big {
 	font-size: 125%;
 }
+
+
+.site-info {
+	font-size:0.83rem;
+	color: lighten( $color__text-main, 30% );
+}
