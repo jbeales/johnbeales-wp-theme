@@ -1,10 +1,8 @@
 .clear:before,
 .clear:after,
 .entry-content:after,
-.comment-content:before,
-.comment-content:after,
+
 .site-content:before,
-.site-content:after,
 .site-footer:before,
 .site-footer:after {
 	@include clearfix;
