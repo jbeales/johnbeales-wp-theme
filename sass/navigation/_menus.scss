@@ -1,16 +1,20 @@
 .main-navigation {
-	clear: both;
-	display: block;
-	float: left;
-	width: 100%;
-
+	
+	grid-column: 1 / span 10;
+	
 	ul {
-		display: none;
+
+		height:100%;
+		display:flex;
+		align-items: center;
+
+
 		list-style: none;
 		margin: 0;
-		padding-left: 0;
-
-		ul {
+		padding: 0;
+// We're not planning on using sub-menus in the main nav, so we'll comment this
+// out but save it in case it's needed later.
+/*		ul {
 			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 			float: left;
 			position: absolute;
@@ -47,12 +51,13 @@
 		li.focus > ul {
 			left: auto;
 		}
+*/
 	}
 
 	li {
-		float: left;
-		position: relative;
 
+		padding-right:1em;
+		
 		&:hover > a,
 		&.focus > a {
 		}
@@ -70,20 +75,8 @@
 	}
 }
 
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
-}
 
-@media screen and (min-width: 37.5em) {
-	.menu-toggle {
-		display: none;
-	}
-	.main-navigation ul {
-		display: block;
-	}
-}
+
 
 .comment-navigation,
 .posts-navigation,

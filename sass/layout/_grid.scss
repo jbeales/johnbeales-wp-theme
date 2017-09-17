@@ -18,7 +18,7 @@ body {
 .site-footer {
 
 	display:grid;
-	grid-gap: 1rem;
+	grid-gap: 0.25rem 1rem;
 
 }
 
@@ -36,9 +36,7 @@ body {
 	.site-branding {
 		grid-column: 1 / span 10;
 	}
-	.main-navigation {
-		grid-column: 1 / span 10;
-	}
+
 
 /*
 	.site-branding,
@@ -117,8 +115,14 @@ body {
 
 
 		.main-navigation {
-			grid-column: 4 / span 4;
+			grid-column: 5 / span 4;
 			justify-self:end;
+
+			.menu-main-nav-container {
+				height:100%;
+			}
+
+			
 		}
 	}
 
