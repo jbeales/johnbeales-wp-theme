@@ -46,6 +46,6 @@ big {
 
 
 .site-info {
-	font-size:0.83rem;
-	color: lighten( $color__text-main, 30% );
+	font-size:$font__size-de-emphasized;
+	color: $color__text-de-emphasized;
 }

@@ -12,6 +12,7 @@ $color__link: #06c;
 $color__link-visited: darken( $color__link, 10% );
 $color__link-hover: white;
 $color__text-main: #404040;
+$color__text-de-emphasized: lighten( $color__text-main, 30% );
 
 $color__border-button: #ccc #ccc #bbb;
 $color__border-button-hover: #ccc #bbb #aaa;

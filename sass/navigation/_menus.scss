@@ -96,14 +96,29 @@
 		overflow: hidden;
 	}
 
+	.nav-links {
+		font-size: $font__size-de-emphasized;
+		a {
+			color: $color__text-de-emphasized;
+		}
+	}
+
 	.nav-previous {
 		float: left;
 		width: 50%;
+
+		a:before {
+			content: "⇽ ";
+		}
 	}
 
 	.nav-next {
 		float: right;
 		text-align: right;
 		width: 50%;
+
+		a:after {
+			content:" ⇾";
+		}
 	}
 }
