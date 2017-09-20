@@ -41,3 +41,21 @@ function johnbeales_allow_wide_srcset( $width ) {
 	return 5000;
 }
 add_filter( 'max_srcset_image_width', 'johnbeales_allow_wide_srcset' );
+
+
+/**
+ * @see wp_calculate_image_sizes filter.
+ */
+function johnbeales_set_image_sizes_attribute( $sizes, $size, $image_src, $image_meta, $attachment_id ) {
+
+	$post = get_post();
+	// In this situation we can assume it's a full-width image.
+	if( 'post' == $post->post_type && ( is_home() || is_archive() || is_single() ) ) {
+		$sizes = '(max-width:37.5rem) 91.6vw, (max-width:60rem) 83.333vw, 66.6667vw';
+
+	}
+
+
+	return $sizes;
+}
+add_filter( 'wp_calculate_image_sizes', 'johnbeales_set_image_sizes_attribute', 10, 5 );
