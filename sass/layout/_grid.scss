@@ -25,7 +25,10 @@ body {
 
 .site-header,
 .site-footer,
-nav.posts-navigation {
+.page-header,
+nav.posts-navigation,
+nav.post-navigation,
+.fullwidth-embed {
 
 	@extend %layout-container;
 
@@ -60,6 +63,11 @@ nav.posts-navigation {
 	grid-area: content;
 	max-width: 100%; // otherwise it expands beyond it's grid area in FF.
 
+	.page-header h1,
+	.page-header .archive-description {
+		@extend %full-width-column;
+	}
+
 	article {
 		
 		@extend %layout-container;
@@ -68,12 +76,18 @@ nav.posts-navigation {
 		.entry-content,
 		.entry-footer {
 			@extend %full-width-column;
-			overflow:hidden;
+	//		overflow:hidden;
 			max-width: $text__line-length;
 		}
 
 
 		.entry-content {
+
+			// Prevents the grid-item from expaniding to hold its contents, 
+			// no matter how wide they are. 
+			// @see https://stackoverflow.com/questions/43311943/prevent-grid-items-from-stretching-in-css-grid-layout
+			min-width:0;
+
 			& > blockquote,
 			& > code {
 				overflow:scroll;
@@ -125,7 +139,8 @@ nav.posts-navigation {
 	}
 }
 
-nav.posts-navigation {
+nav.posts-navigation,
+nav.post-navigation {
 	.nav-links {
 		@extend %full-width-column;
 	}

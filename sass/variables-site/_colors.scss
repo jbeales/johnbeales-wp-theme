@@ -21,4 +21,4 @@ $color__border-input: #ccc;
 $color__border-abbr: #666;
 
 $color__border-embed: #666;
-$color__background-embed: #eee;
+$color__background-embed: lighten( $color__link, 25% );

@@ -1,6 +1,25 @@
 
 .fullwidth-embed {
 	background: $color__background-embed;
+	
+	width: 100vw;
+	margin-left: calc( ((100vw / 11) * 0.5 + 0.6vw ) * -1 );
+	
+
+
+	padding: 1rem 0;
+
+	.twitter-tweet {
+		@extend %full-width-column;
+
+		font-size:1.18rem;
+		color: #fff;
+		font-style:italic;
+
+		a {
+			color: #fff;
+		}
+	}
 
 }
 
@@ -8,13 +27,24 @@
 	text-align:center;
 }
 
+@include large-handheld {
 
-@media (min-width: 60rem ) {
+	.fullwidth-embed {
+		margin-left: calc( ((100vw / 12) + 0.1vw  ) * -1 );
+	}
+}
+
+
+@include desktop {
+
+	.fullwidth-embed {
+		margin-left: calc( ((100vw / 12) * 2  ) * -1 );
+	}
 
 
 	.entry-content twitterwidget,
 	.entry-content blockquote.twitter-tweet {
-		justify-self: center;
+	//	justify-self: center;
 	}
 
 }

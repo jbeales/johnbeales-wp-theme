@@ -12,26 +12,49 @@ if ( ! function_exists( 'johnbeales_posted_on' ) ) :
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 */
 	function johnbeales_posted_on() {
-		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
-		}
 
-		$time_string = sprintf( $time_string,
-			esc_attr( get_the_date( 'c' ) ),
-			esc_html( get_the_date() ),
-			esc_attr( get_the_modified_date( 'c' ) ),
-			esc_html( get_the_modified_date() )
-		);
+		$updated_string = '';
 
-		$posted_on = sprintf(
+		$anchor_start = sprintf(
 			/* translators: %s: post date. */
 			esc_html_x( '%s', 'post date', 'johnbeales' ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">'
 		);
 
+		$published_classes = 'published';
+		if ( get_the_time( 'U' ) === get_the_modified_time( 'U' ) ) {
+			$published_classes = 'published updated';
+		}
+		$time_string = '<time class="entry-date %1$s" title="Published" datetime="%2$s">%3$s</time>';
+		$time_string = sprintf( $time_string,
+			$published_classes,
+			esc_attr( get_the_date( 'c' ) ),
+			esc_html( get_the_date() )
+		);
 
-		echo '<span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
+		$time_string = $anchor_start . $time_string . '</a>';
+
+		$posted_on = $time_string;
+
+
+		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+			$updated_string = '<time class="updated" title="Updated" datetime="%1$s">%2$s</time>';
+			$updated_string = sprintf( $updated_string,
+				esc_attr( get_the_modified_date( 'c' ) ),
+				esc_html( get_the_modified_date() )
+			);
+
+			$updated_string = $anchor_start . $updated_string . '</a>';
+
+			$posted_on .= ' / ' . $updated_string;
+		}
+
+		
+
+		
+
+
+		echo '<span class="posted-on">' . $posted_on . '</span>'; 
 
 	}
 endif;
