@@ -12,6 +12,8 @@
 }
 
 
+
+
 body {
 	@extend %layout-container;
 
@@ -28,7 +30,8 @@ body {
 .page-header,
 nav.posts-navigation,
 nav.post-navigation,
-.fullwidth-embed {
+.fullwidth-embed,
+.comments-area {
 
 	@extend %layout-container;
 
@@ -139,6 +142,62 @@ nav.post-navigation,
 	}
 }
 
+.comments-area {
+	
+	.comments-title,
+	.comment-list {
+		@extend %full-width-column;
+	}
+
+	.comment-respond {
+		@extend %full-width-column;
+		max-width: $text__line-length;
+
+		font-size:90%;
+
+		code {
+			font-size:81%;
+			font-weight:lighter;
+		}
+	}
+
+	.comment-form {
+		display:grid;
+		grid-template-columns: repeat( $grid-columns, 1fr );
+		grid-gap: 0.25rem 2vw;
+
+	}
+
+	.comment-form-author,
+	.comment-form-email,
+	.comment-form-url,
+	.comment-form-comment,
+	.form-submit,
+	.comment-subscription-form,
+	.comment-notes {
+		grid-column: 1 / span 12;
+	}
+
+	.comment-form-comment {
+		grid-row: 4 / span 1;
+	}
+}
+
+.page-template-archives .entry-content {
+	display:grid;
+	grid-template-columns: 1fr;
+	grid-gap:1rem 1.5rem;
+
+	@include large-handheld {
+		grid-template-columns: 1fr 1fr;
+
+		.tag_cloud,
+		.search-form {
+			grid-column: 1 / span 2;
+		}
+	}
+}
+
 nav.posts-navigation,
 nav.post-navigation {
 	.nav-links {
@@ -186,6 +245,25 @@ nav.post-navigation {
 
 	}
 
+
+	.comments-area {
+		.comment-form-author {
+			grid-column: 1 / span 4;
+		}
+		.comment-form-email {
+			grid-column: 5 / span 4;
+		}
+		.comment-form-url {
+			grid-column: 9 / span 4;
+
+		}
+
+		
+		.comment-form-comment {
+			grid-row: 2 / span 1;
+		}
+	}
+
 }
 
 
@@ -203,6 +281,12 @@ nav.post-navigation {
 		.main-navigation {
 			grid-column: 6 / span 5;
 		}
+	}
+
+	.comments-area {
+		
+
+		
 	}
 	
 }

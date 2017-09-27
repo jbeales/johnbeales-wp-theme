@@ -1,0 +1,30 @@
+.comments-area .comment-form {
+	p {
+		min-width:0;
+		margin:0.5em 0;
+	}
+
+	span.required {
+		display:none;
+	}
+
+	label {
+		width: 17%;
+		display:inline-block;
+	}
+
+	input {
+		max-width: 100%;
+	}
+
+	input[type="submit"] {
+		display:block;
+		margin: 1em auto;
+	}
+
+	@include large-handheld {
+		input[type="submit"] {
+			display:inline-block;
+		}
+	}
+}

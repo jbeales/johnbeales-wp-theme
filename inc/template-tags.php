@@ -119,3 +119,9 @@ if ( ! function_exists( 'johnbeales_entry_footer' ) ) :
 	}
 endif;
 
+function johnbeales_end_comment_form( $post_is ) {
+	echo '<p class="comment-notes">' . __( 'Your name and E-mail address, and of course a comment, are required. I won\'t do anything evil with your E-mail address.' ) . '</p>';
+	echo '<p class="comment-notes">If you so desire, you may use these tags in your comment: <code>' . allowed_tags() . '</code></p>';
+}
+add_action( 'comment_form', 'johnbeales_end_comment_form' );
+

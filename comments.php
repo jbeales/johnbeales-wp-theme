@@ -66,7 +66,13 @@ if ( post_password_required() ) {
 
 	endif; // Check for have_comments().
 
-	comment_form();
+
+
+	comment_form( [ 
+		'title_reply' => 'What do you think?',
+		'label_submit' => 'Submit Thoughts',
+		'comment_notes_before' => ''
+	] );
 	?>
 
 </div><!-- #comments -->

@@ -20,7 +20,7 @@
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 0;
+	margin: 1em 0 0;
 }
 
 .entry-footer {
@@ -30,4 +30,13 @@
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+}
+
+.page-template-archives {
+	ul {
+		margin-left:0;
+		padding-left:0;
+		list-style-type:none;
+		
+	}
 }

@@ -1,0 +1,57 @@
+.dt_bookbox {
+
+	%content-area {
+		grid-column: 4 / span 7;
+	}
+
+	font-size: 81%;
+
+	display:grid;
+	grid-template-columns: repeat( 10, 1fr );
+	align-items: start;
+	grid-gap: 0.25vw 3vw;
+
+
+	.dt_bookbox-image {
+		grid-column: 1 / span 3;
+		grid-row: 1 / span 3;
+	}
+
+	h6 {
+		font-size:1em;
+		margin:0;
+	}
+
+	h6,
+	.dt_booklinks, 
+	.dt_bookbox_extra_comment {
+		@extend %content-area;
+	}
+
+
+	@include large-handheld {
+
+		font-size:100%;
+
+		.dt_bookbox-image {
+			grid-column: 1 / span 2;
+		}
+
+
+		%content-area {
+			grid-column: 3 / span 8;
+		}
+	}
+
+	@include desktop {
+		grid-template-columns: repeat( 8, 1fr );
+
+		.dt_bookbox-image {
+			grid-column: 1 / span 2;
+		}
+
+		%content-area {
+			grid-column: 3 / span 6;
+		}
+	}
+}
