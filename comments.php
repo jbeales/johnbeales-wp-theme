@@ -28,20 +28,32 @@ if ( post_password_required() ) {
 		<h2 class="comments-title">
 			<?php
 			$comment_count = get_comments_number();
-			if ( 1 === $comment_count ) {
-				printf(
-					/* translators: 1: title. */
-					esc_html_e( 'One thought on &ldquo;%1$s&rdquo;', '_s' ),
-					'<span>' . get_the_title() . '</span>'
-				);
-			} else {
-				printf( // WPCS: XSS OK.
-					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $comment_count, 'comments title', '_s' ) ),
-					number_format_i18n( $comment_count ),
-					'<span>' . get_the_title() . '</span>'
-				);
+
+
+			switch(count($comments)) {
+				case 1:
+					$comments_title = 'Whisper about';
+					break;
+				case 2:
+				case 3:
+					$comments_title = 'Whispers about';
+					break;
+				case 4:
+				case 5:
+					$comments_title = 'Chitchat about';
+					break;
+				case 6:
+				case 7:
+					$comments_title = 'Conversation about';
+					break;
+				default:
+					$comments_title = 'The Melee about';
+					break;
+						
 			}
+
+			echo $comments_title . ' &ldquo;<span>' . get_the_title() . '</span>&rdquo;'
+
 			?>
 		</h2><!-- .comments-title -->
 
@@ -51,7 +63,7 @@ if ( post_password_required() ) {
 			<?php
 				wp_list_comments( array(
 					'style'      => 'ol',
-					'short_ping' => true,
+					'avatar_size' => 48
 				) );
 			?>
 		</ol><!-- .comment-list -->

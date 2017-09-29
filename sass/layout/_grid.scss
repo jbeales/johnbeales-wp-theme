@@ -144,10 +144,21 @@ nav.post-navigation,
 
 .comments-area {
 	
-	.comments-title,
-	.comment-list {
+	.comments-title {
 		@extend %full-width-column;
 	}
+
+	.comment-list {
+		grid-column: 1 / span $grid-columns;
+	}
+
+	.comment-meta,
+	.comment-content {
+		@extend %full-width-column;
+	}
+
+	
+	
 
 	.comment-respond {
 		@extend %full-width-column;

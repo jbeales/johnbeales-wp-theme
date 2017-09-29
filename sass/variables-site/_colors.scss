@@ -10,6 +10,7 @@ $color__text-de-emphasized: lighten( $color__text-main, 30% );
 $color__background-body: #fff;
 $color__background-screen: #f1f1f1;
 $color__background-hr: #ccc;
+$color__background-comment-alt: lighten( $color__link, 55% );
 $color__background-button: lighten( $color__link, 55% );
 $color__background-pre: #eee;
 $color__background-ins: #fff9c0;
@@ -19,6 +20,7 @@ $color__border-button-hover: darken( $color__border-button, 10% );
 $color__border-button-focus: lighten( $color__border-button, 30% );
 $color__border-input: #ccc;
 $color__border-abbr: #666;
+$color__border-comment: $color__text-de-emphasized;
 
 $color__border-embed: #666;
 $color__background-embed: lighten( $color__link, 25% );

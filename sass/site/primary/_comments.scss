@@ -2,5 +2,47 @@
 	word-wrap: break-word;
 }
 .bypostauthor {
-	display: block;
+	
+}
+
+.comments-title span {
+	font-style: italic;
+}
+
+.comment-list {
+	margin:0;
+	padding:0;
+}
+
+.comment-content {
+	overflow-wrap: break-word;
+	min-width:0;
+}
+
+.comment-meta {
+	.comment-author {
+		img {
+			float:left;
+			margin-right: 0.5em;
+		}
+
+
+		img, .fn, .says {
+			vertical-align: middle;
+		}
+	}
+}
+
+.comment-list {
+	article {
+		padding: 0.5rem 0;
+	}
+
+	.even {
+		background-color: $color__background-comment-alt;
+	}
+}
+
+.comment-body {
+	border-bottom: 1px dotted $color__border-comment;
 }
