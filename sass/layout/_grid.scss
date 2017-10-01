@@ -31,7 +31,8 @@ body {
 nav.posts-navigation,
 nav.post-navigation,
 .fullwidth-embed,
-.comments-area {
+.comments-area,
+.site-content {
 
 	@extend %layout-container;
 
@@ -61,17 +62,26 @@ nav.post-navigation,
 	*/
 }
 
+
 .site-content {
 
 	grid-area: content;
 	max-width: 100%; // otherwise it expands beyond it's grid area in FF.
+	min-width:0;
+
+
+	.content-area {
+		grid-column: 1 / span $grid-columns;
+	}
+
 
 	.page-header h1,
 	.page-header .archive-description {
 		@extend %full-width-column;
 	}
 
-	article {
+	article,
+	.error-404 {
 		
 		@extend %layout-container;
 
@@ -81,6 +91,10 @@ nav.post-navigation,
 			@extend %full-width-column;
 	//		overflow:hidden;
 			max-width: $text__line-length;
+		}
+
+		.page-header {
+			grid-column: 1 / span $grid-columns;
 		}
 
 
@@ -157,7 +171,7 @@ nav.post-navigation,
 		@extend %full-width-column;
 	}
 
-	
+
 	
 
 	.comment-respond {
@@ -194,7 +208,8 @@ nav.post-navigation,
 	}
 }
 
-.page-template-archives .entry-content {
+.page-template-archives .entry-content,
+.error404 .entry-content {
 	display:grid;
 	grid-template-columns: 1fr;
 	grid-gap:1rem 1.5rem;
