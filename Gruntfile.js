@@ -52,7 +52,7 @@ module.exports = function(grunt) {
 		        },
                 processors: [
                     require('autoprefixer')({
-			          browsers: ['last 2 versions']
+			          browsers: ['last 3 versions']
 			        }),
 			        require('cssnano')() // minify the result
                 ]

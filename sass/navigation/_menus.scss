@@ -81,8 +81,13 @@
 
 @include large-handheld {
 	.main-navigation li {
-		padding-right:0;
-		padding-left:3vw;
+		
+		padding-right:1.5em;
+
+		@supports( display:grid ) {
+			padding-right:0;
+			padding-left:3vw;
+		}
 	}
 }
 

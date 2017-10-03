@@ -1,4 +1,15 @@
 
+// Start with stuff for non-grid browsers.
+.site-header,
+.site-content,
+.site-footer {
+	max-width: 60em;
+	margin:0 auto;
+}
+
+
+@supports (display:grid) {
+
 %layout-container {
 	display:grid;
 	grid-template-columns: 0.5fr repeat( $grid-columns - 2, 1fr ) 0.5fr;
@@ -10,8 +21,6 @@
 %full-width-column {
 	grid-column: 2 / span 10;
 }
-
-
 
 
 body {
@@ -69,7 +78,6 @@ nav.post-navigation,
 	max-width: 100%; // otherwise it expands beyond it's grid area in FF.
 	min-width:0;
 
-
 	.content-area {
 		grid-column: 1 / span $grid-columns;
 	}
@@ -100,6 +108,7 @@ nav.post-navigation,
 
 		.entry-content {
 
+			
 			// Prevents the grid-item from expaniding to hold its contents, 
 			// no matter how wide they are. 
 			// @see https://stackoverflow.com/questions/43311943/prevent-grid-items-from-stretching-in-css-grid-layout
@@ -126,11 +135,13 @@ nav.post-navigation,
 			}
 		}
 
+
+
 		.entry-footer {
 			display:grid;
 			grid-template-columns: 1fr 1fr;
 			grid-gap:0.0rem 1.5rem;
-
+			
 			.entry-meta {
 				grid-column: 1 / span 1;
 				grid-row: 1 / span 1;
@@ -243,9 +254,7 @@ nav.post-navigation {
 
 
 	%layout-container {
-		//isplay:grid;
 		grid-template-columns: repeat( $grid-columns, 1fr );
-		//grid-gap: 0.25rem;
 	}
 
 
@@ -318,6 +327,6 @@ nav.post-navigation {
 }
 
 
-
+}
 
 
