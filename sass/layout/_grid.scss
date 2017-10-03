@@ -23,6 +23,7 @@
 }
 
 
+
 body {
 	@extend %layout-container;
 
@@ -32,6 +33,12 @@ body {
 	"footer footer footer footer footer footer footer footer footer footer footer footer"
 }
 
+.site-header,
+.site-content,
+.site-footer {
+	max-width: 100vw;
+	margin:0;
+}
 
 
 .site-header,
