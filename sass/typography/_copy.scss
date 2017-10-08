@@ -51,7 +51,7 @@ big {
 	color: $color__text-de-emphasized;
 }
 
-.entry-content p:first-of-type {
+.entry-content > p:first-of-type {
 	&::first-line {
 		font-weight:600;
 	}
