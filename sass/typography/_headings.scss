@@ -23,8 +23,8 @@ h1, h2, h3, h4, h5, h6 {
 
 
 	a {
-		&:link:not(&:active):not(&:hover):not(&:focus),
-		&:visited:not(&:active):not(&:hover):not(&:focus) {
+		&:link:not(:active):not(:hover):not(:focus),
+		&:visited:not(:active):not(:hover):not(:focus) {
 			color: inherit;
 		}
 	}
