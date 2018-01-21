@@ -14,3 +14,12 @@
 	clear: both;
 	@include center-block;
 }
+
+.entry-content {
+	img.alignright,
+	img.alignleft,
+	img.aligncenter {
+		width: auto;
+		height:auto;
+	}	
+}
