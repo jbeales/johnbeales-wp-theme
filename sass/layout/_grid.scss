@@ -94,6 +94,7 @@ nav.post-navigation,
 	.page-header h1,
 	.page-header .archive-description {
 		@extend %full-width-column;
+		max-width: 60rem;
 	}
 
 	article,
