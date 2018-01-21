@@ -1,5 +1,6 @@
 
-.fullwidth-embed {
+.fullwidth-embed,
+.entry-content > blockquote {
 	background: $color__background-embed;
 	
 	@supports (display:grid) {
@@ -9,8 +10,13 @@
 
 
 	padding: 1rem 0;
+	margin-top:1rem;
+	margin-bottom:1rem;
 
-	.twitter-tweet {
+	color: #fff;
+
+	.twitter-tweet,
+	& > * {
 		@extend %full-width-column;
 
 		margin:0 auto;
@@ -18,26 +24,76 @@
 		@supports (display:grid) {
 			margin:0;
 		}
+	}
+
+	a {
+		color: #fff;
+	}
+
+	.twitter-tweet {
 
 		font-size:1.18rem;
-		color: #fff;
+		
 		font-style:italic;
 
-		a {
-			color: #fff;
+		
+	}
+
+	
+
+	
+}
+
+
+.entry-content > blockquote {
+
+	background-color: lighten( desaturate( $color__background-blockquote, 60% ), 20% );
+
+//	font-kerning: auto;
+//	letter-spacing:0.01em;
+
+	
+	// Otherwise the beginning of the content is really far from the title.
+	&:first-child {
+		margin-top:0;
+	}
+
+
+	cite {
+		font-size:1rem;
+
+		margin-left:1em;
+
+		&:before {
+			content:"(";
 		}
+
+		&:after {
+			content:")";
+		}
+	}
+
+	& > pre {
+		background:none;
+		font-size:1rem;
+		padding:0;
+	}
+
+	&.pullquote {
+		font-size:1.45rem;
 	}
 
 }
 
-.entry-content blockquote.twitter-tweet {
-	text-align:center;
-}
+
+
+
 
 @supports (display:grid) {
 	@include large-handheld {
 
-		.fullwidth-embed {
+		.fullwidth-embed,
+		.entry-content > blockquote {
 			margin-left: calc( ((100vw / 12) + 0.1vw  ) * -1 );
 		}
 	}
@@ -45,7 +101,8 @@
 
 	@include desktop {
 
-		.fullwidth-embed {
+		.fullwidth-embed,
+		.entry-content > blockquote {
 			margin-left: calc( ((100vw / 12) * 2  ) * -1 );
 		}
 
@@ -54,7 +111,5 @@
 		.entry-content blockquote.twitter-tweet {
 		//	justify-self: center;
 		}
-
 	}
-
 }

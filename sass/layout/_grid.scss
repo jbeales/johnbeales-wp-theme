@@ -48,6 +48,7 @@ nav.posts-navigation,
 nav.post-navigation,
 .fullwidth-embed,
 .comments-area,
+.entry-content > blockquote,
 .site-content {
 
 	@extend %layout-container;
@@ -121,7 +122,7 @@ nav.post-navigation,
 			// @see https://stackoverflow.com/questions/43311943/prevent-grid-items-from-stretching-in-css-grid-layout
 			min-width:0;
 
-			& > blockquote,
+			
 			& > code {
 				overflow:scroll;
 				max-width: 100%;
@@ -139,6 +140,10 @@ nav.post-navigation,
 					position:absolute;
 					bottom:0;
 				}
+			}
+
+			blockquote {
+				position:relative;
 			}
 		}
 
