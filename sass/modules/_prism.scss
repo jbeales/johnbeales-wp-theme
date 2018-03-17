@@ -1,4 +1,5 @@
-/* http://prismjs.com/download.html?themes=prism&languages=markup+css+clike+javascript+apacheconf+bash+docker+git+http+ini+json+markdown+nginx+php+php-extras+scss+sql */
+/* PrismJS 1.12.2
+http://prismjs.com/download.html?#themes=prism&languages=markup+css+clike+javascript+apacheconf+bash+docker+git+http+ini+json+markdown+nginx+php+php-extras+sql+scss */
 /**
  * prism.js default theme for JavaScript, CSS and HTML
  * Based on dabblet (http://dabblet.com)
@@ -115,7 +116,8 @@ pre[class*="language-"] {
 	color: #07a;
 }
 
-.token.function {
+.token.function,
+.token.class-name {
 	color: #DD4A68;
 }
 
