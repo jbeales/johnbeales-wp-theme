@@ -9,7 +9,7 @@ html {
 }
 
 body {
-	background: $color__background-body; /* Fallback for when there is no custom background color defined. */
+	background: #fff; /* Fallback for when there is no custom background color defined. */
 }
 
 q {
@@ -22,7 +22,7 @@ q {
 }
 
 hr {
-	background-color: $color__background-hr;
+	background-color: getColor(neutral);
 	border: 0;
 	height: 1px;
 	margin-bottom: 1.5em;

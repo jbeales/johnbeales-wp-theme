@@ -15,7 +15,7 @@ address {
 }
 
 pre {
-	background: $color__background-pre;
+	background: getColor(neutral, 800);
 	font-family: $font__pre;
 	@include font-size(0.9375);
 	line-height: $font__line-height-pre;
@@ -33,12 +33,12 @@ code, kbd, tt, var {
 }
 
 abbr, acronym {
-	border-bottom: 1px dotted $color__border-abbr;
+	border-bottom: 1px dotted getColor(accent);
 	cursor: help;
 }
 
 mark, ins {
-	background: $color__background-ins;
+	background: getColor(neutral, 900);
 	text-decoration: none;
 }
 
@@ -49,7 +49,7 @@ big {
 
 .site-info {
 	font-size:$font__size-de-emphasized;
-	color: $color__text-de-emphasized;
+	color: getColor(primary, 600 );
 }
 
 .entry-content > p:first-of-type {

@@ -1,28 +1,56 @@
-$color__text-screen: #21759b;
-$color__text-input: #666;
-$color__text-input-focus: #111;
-$color__link: #06c;
-$color__link-visited: darken( $color__link, 10% );
-$color__link-hover: white;
-$color__text-main: #404040;
-$color__text-de-emphasized: lighten( $color__text-main, 30% );
 
-$color__background-body: #fff;
-$color__background-screen: #f1f1f1;
-$color__background-hr: #ccc;
-$color__background-comment-alt: lighten( $color__link, 55% );
-$color__background-button: lighten( $color__link, 55% );
-$color__background-pre: #eee;
-$color__background-ins: #fff9c0;
 
-$color__border-button: $color__link;
-$color__border-button-hover: darken( $color__border-button, 10% );
-$color__border-button-focus: lighten( $color__border-button, 30% );
+
+
 $color__border-input: #ccc;
-$color__border-abbr: #666;
-$color__border-comment: $color__text-de-emphasized;
 
-$color__border-embed: #666;
-$color__background-embed: lighten( $color__link, 25% );
 
-$color__background-blockquote: $color__link-visited;
+
+
+
+
+$hues: (
+	primary: 220,
+	highlight: 188,
+	accent: 207,
+	affirm:	158,
+);
+
+$levels: (
+	100: ( s: 98, l: 10),
+	200: ( s: 98, l: 25),
+	300: ( s: 80, l: 40),
+	400: ( s: 80, l: 60),
+	500: ( s: 70, l: 60),
+	600: ( s: 40, l: 80),
+	700: ( s: 40, l: 90),
+	800: ( s: 30, l: 90),
+	900: ( s: 15, l: 98)
+);
+
+$graylevels: ( 100:10, 200:15, 300:25, 400:40, 500:50, 600:60, 700:75, 800:85, 900:90 ); 
+
+$colorScheme: ();
+
+@each $name, $hue in $hues {
+	$thisHue: ();
+	@each $level, $values in $levels {
+		$thisHue: map-merge( $thisHue, ( $level: hsl( $hue, map-get($values, s), map-get($values, l) ) ) );
+	}
+
+	$colorScheme: map-merge( $colorScheme, ( $name: $thisHue ) );
+}
+
+
+$grays: ();
+@each $level, $value in $graylevels {
+	$grays:  map-merge( $grays, ( $level: hsl( 0, 0, $value ) ) );
+}
+$colorScheme: map-merge( $colorScheme, (neutral: $grays));
+
+
+
+// Our function for shorter usage of map-get();
+@function getColor($name, $level: 500) {
+    @return map-get( map-get($colorScheme, $name), $level);
+}

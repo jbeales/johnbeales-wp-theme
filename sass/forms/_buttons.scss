@@ -3,19 +3,19 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"] {
 	border: 1px solid;
-	border-color: $color__border-button;
+	border-color: getColor(affirm, 200);
 	border-radius: 0.4vw;
-	background: $color__background-button;
+	background: getColor(affirm, 800);
 	color: rgba(0, 0, 0, .9);
 	line-height: 1;
 	padding: .6em 1em .4em;
 
 	&:hover {
-		border-color: $color__border-button-hover;
+		border-color: getColor(affirm);
 	}
 
 	&:active,
 	&:focus {
-		border-color: $color__border-button-focus;
+		border-color: getColor(affirm, 600);
 	}
 }

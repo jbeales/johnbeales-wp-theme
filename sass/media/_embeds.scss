@@ -1,7 +1,9 @@
 
 .fullwidth-embed,
 .entry-content > blockquote {
-	background: $color__background-embed;
+	background: getColor(accent);
+
+	box-shadow: 2vw 1vh 2vh 0 getColor(neutral, 700);
 	
 	@supports (display:grid) {
 		width: 100vw;
@@ -47,7 +49,7 @@
 
 .entry-content > blockquote {
 
-	background-color: lighten( desaturate( $color__background-blockquote, 60% ), 20% );
+	background-color: getColor(accent);
 
 //	font-kerning: auto;
 //	letter-spacing:0.01em;
@@ -114,6 +116,21 @@
 		.entry-content twitterwidget,
 		.entry-content blockquote.twitter-tweet {
 		//	justify-self: center;
+		}
+	}
+
+	@include widescreen {
+		.fullwidth-embed,
+		.entry-content > blockquote {
+			margin-left: calc( ((100vw / 12) + 0.02vw  ) * -3 );
+
+			& > * {
+				grid-column: 4 / span 7;
+			}
+
+			.twitter-tweet {
+				grid-column: 4 / span 6;
+			}
 		}
 	}
 }

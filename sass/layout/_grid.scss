@@ -336,9 +336,154 @@ nav.post-navigation {
 
 		
 	}
-	
+
+
+
 }
 
+
+@include widescreen {
+
+	body {
+		grid-template-areas:
+	"header header content content content content content content content content content content"
+	"header header content content content content content content content content content content"
+	"footer footer content content content content content content content content content content";
+	}
+
+
+	.site-header {
+
+		box-shadow: 0 0 1.5vw 0.2vw getColor(neutral, 400);
+
+
+
+		background-color: getColor( primary, 100 );
+		color: getColor( primary, 700 );
+
+		a {
+			color: getColor( primary, 700 );
+		}
+
+
+		grid-gap: 1em 1%;
+		align-content: start;
+		z-index:1000;
+
+		position:fixed;
+		top:0;
+		left:0;
+		bottom:0;
+		width: calc( 100vw / 12 * 2);
+
+		.site-branding,
+		.main-navigation {
+			grid-column: 2 / span 10;
+		}
+
+	
+		.main-navigation {
+			justify-self:stretch;
+			ul.menu {
+				//align-items:start;
+				justify-content: space-between;
+				
+
+				li {
+					padding-left:0;
+					
+				}
+			}
+
+			a {
+				&:link { 
+					color: getColor( primary, 800 );
+				}
+
+				&:visited {
+					color: getColor( primary, 700 );
+				}
+			}
+		}
+
+		.site-branding .site-title a {
+			color: getColor( primary, 700 );
+		}
+
+	}
+
+	.site-footer {
+		align-self:end;
+		z-index:1001;
+
+
+		.site-info {
+			grid-column: 2 / span 10;
+			color: getColor( primary, 300 );
+		}
+	}
+
+	.site-content {
+		grid-template-columns: repeat( 10, 1fr );
+		min-height: 100vh;
+
+		.content-area,
+		article,
+		.post-navigation,
+		.page-header {
+			grid-column: span 10;
+		}
+
+		article,
+		.post-navigation,
+		.comments-area,
+		.page-header {
+			grid-template-columns: repeat( 10, 1fr );
+
+			.entry-header,
+			.entry-content,
+			.entry-footer,
+			.nav-links,
+			.comment-respond,
+			.comments-title,
+			.comment-list {
+				grid-column: 2 / span 7;
+				max-width: none;
+			}
+		}
+
+		.page-header {
+			h1,
+			.archive-description {
+				grid-column: 2 / span 7;
+				max-width: none;
+			}
+		}
+
+		.comments-area {
+			.comment-meta,
+			.comment-content {
+				grid-column: 1 / span 10;
+				padding: 0 1vw;
+			}
+		}
+
+		.page-header {
+
+		}
+	}
+
+	nav.posts-navigation {
+		grid-template-columns: repeat( 10, 1fr );
+		.nav-links {
+			grid-column: 2 / span 7;
+		}
+	}
+
+
+
+
+}
 
 }
 

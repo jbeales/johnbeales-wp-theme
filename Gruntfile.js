@@ -9,6 +9,9 @@ module.exports = function(grunt) {
 		funcSafeProjectName = hostSafeProjectName.replace( '-', '_' );
 	}
 
+	const sass = require('node-sass');
+//	require('load-grunt-tasks')(grunt);
+
 
 	// Project configuration.
 	grunt.initConfig({
@@ -35,7 +38,8 @@ module.exports = function(grunt) {
 			
 			options: {
 				style: 'expanded',	// use compressed for production, expanded for debug /// for ruby sass
-				precision: 8
+				precision: 8,
+				implementation: sass
 			},
 
 			dist: {	
@@ -231,7 +235,7 @@ module.exports = function(grunt) {
                 },
                 options: {
                     watchTask: true,
- 					proxy: "johnbeales.dev" // e.g., localhost.dev, wordpress.dev
+ 					proxy: "dev.johnbeales.com" // e.g., localhost.dev, wordpress.dev
                 }
             }
         }

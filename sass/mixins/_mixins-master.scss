@@ -36,3 +36,9 @@
 		@content;
 	}
 }
+
+@mixin widescreen {
+	@media (min-width: 65rem) {
+		@content;
+	}
+}

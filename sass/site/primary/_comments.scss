@@ -39,10 +39,10 @@
 	}
 
 	.even {
-		background-color: $color__background-comment-alt;
+		background-color: getColor( neutral, 800)
 	}
 }
 
 .comment-body {
-	border-bottom: 1px dotted $color__border-comment;
+	border-bottom: getColor(neutral, 600)
 }

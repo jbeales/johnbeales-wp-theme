@@ -104,7 +104,7 @@
 	.nav-links {
 		font-size: $font__size-de-emphasized;
 		a {
-			color: $color__text-de-emphasized;
+			color: getColor(neutral);
 		}
 	}
 
