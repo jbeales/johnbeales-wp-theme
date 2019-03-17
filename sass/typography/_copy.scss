@@ -52,19 +52,24 @@ big {
 	color: getColor(primary, 600 );
 }
 
-.entry-content > p:first-of-type {
-	&::first-line {
-		font-weight:600;
-	}
+.entry-content {
+	@include font-size(1.2);
 
-	&::first-letter {
-		font-size:3em;
-		float:left;
-		line-height:1em;
-		font-weight:500;
-		initial-letter:2;
-		-webkit-initial-letter:2;
-		padding-right:0.1em;
+
+	& > p:first-of-type {
+		&::first-line {
+			font-weight:600;
+		}
+
+		&::first-letter {
+			font-size:3em;
+			float:left;
+			line-height:1em;
+			font-weight:500;
+			initial-letter:2;
+			-webkit-initial-letter:2;
+			padding-right:0.1em;
+		}
 	}
 
 
