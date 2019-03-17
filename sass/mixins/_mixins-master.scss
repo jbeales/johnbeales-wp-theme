@@ -38,7 +38,7 @@
 }
 
 @mixin widescreen {
-	@media (min-width: 65rem) {
+	@media (min-width: 85rem) {
 		@content;
 	}
 }
