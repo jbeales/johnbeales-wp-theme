@@ -55,6 +55,10 @@ big {
 .entry-content {
 	@include font-size(1.2);
 
+	@include large-handheld {
+		@include font-size(1);
+	}
+
 
 	& > p:first-of-type {
 		&::first-line {
