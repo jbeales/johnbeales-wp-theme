@@ -1,5 +1,6 @@
 .page-content .wp-smiley,
 .entry-content .wp-smiley,
+.entry-summary .wp-smiley,
 .comment-content .wp-smiley {
 	border: none;
 	margin-bottom: 0;
@@ -8,7 +9,8 @@
 }
 
 .page-content,
-.entry-content {
+.entry-content,
+.entry-summary {
 	img {
 		width: 100%;
 		height:auto;

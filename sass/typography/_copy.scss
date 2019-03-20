@@ -52,7 +52,8 @@ big {
 	color: getColor(primary, 600 );
 }
 
-.entry-content {
+.entry-content,
+.entry-summary {
 	@include font-size(1.2);
 
 	@include large-handheld {
@@ -75,6 +76,4 @@ big {
 			padding-right:0.1em;
 		}
 	}
-
-
 }

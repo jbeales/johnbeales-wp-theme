@@ -1,6 +1,7 @@
 
 .fullwidth-embed,
-.entry-content > blockquote {
+.entry-content > blockquote,
+.entry-summary > blockquote {
 	background: getColor(accent);
 
 	box-shadow: 2vw 1vh 2vh 0 getColor(neutral, 700);
@@ -47,7 +48,9 @@
 }
 
 
-.entry-content > blockquote {
+
+.entry-content > blockquote,
+.entry-summary > blockquote {
 
 	background-color: getColor(accent);
 
@@ -99,7 +102,8 @@
 	@include large-handheld {
 
 		.fullwidth-embed,
-		.entry-content > blockquote {
+		.entry-content > blockquote,
+		.entry-summary > blockquote {
 			margin-left: calc( ((100vw / 12) + 0.1vw  ) * -1 );
 		}
 	}
@@ -108,20 +112,24 @@
 	@include desktop {
 
 		.fullwidth-embed,
-		.entry-content > blockquote {
+		.entry-content > blockquote,
+		.entry-summary > blockquote {
 			margin-left: calc( ((100vw / 12) * 2  ) * -1 );
 		}
 
-
-		.entry-content twitterwidget,
-		.entry-content blockquote.twitter-tweet {
-		//	justify-self: center;
+		.entry-content,
+		.entry-summary {
+			twitterwidget,
+			blockquote.twitter-tweet {
+			//	justify-self: center;
+			}
 		}
 	}
 
 	@include widescreen {
 		.fullwidth-embed,
-		.entry-content > blockquote {
+		.entry-content > blockquote,
+		.entry-summary > blockquote {
 			margin-left: calc( ((100vw / 12) + 0.02vw  ) * -3 );
 
 			& > * {

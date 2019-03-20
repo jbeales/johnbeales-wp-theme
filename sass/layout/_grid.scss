@@ -46,12 +46,15 @@ body {
 .page-header,
 nav.posts-navigation,
 nav.post-navigation,
+.social-prompt,
 .fullwidth-embed,
 .comments-area,
 .entry-content > blockquote,
+.entry-summary > blockquote,
 .site-content {
 
 	@extend %layout-container;
+
 
 }
 
@@ -104,6 +107,7 @@ nav.post-navigation,
 
 		.entry-header,
 		.entry-content,
+		.entry-summary,
 		.entry-footer {
 			@extend %full-width-column;
 	//		overflow:hidden;
@@ -115,7 +119,8 @@ nav.post-navigation,
 		}
 
 
-		.entry-content {
+		.entry-content,
+		.entry-summary {
 
 			
 			// Prevents the grid-item from expaniding to hold its contents, 
@@ -177,6 +182,12 @@ nav.post-navigation,
 				}
 			}
 		}
+	}
+}
+
+.social-prompt {
+	.follow-me {
+		@extend %full-width-column;
 	}
 }
 
@@ -337,8 +348,6 @@ nav.post-navigation {
 		
 	}
 
-
-
 }
 
 
@@ -430,18 +439,21 @@ nav.post-navigation {
 		.content-area,
 		article,
 		.post-navigation,
-		.page-header {
+		.page-header
+		.social-prompt {
 			grid-column: span 10;
 		}
 
 		article,
 		.post-navigation,
 		.comments-area,
-		.page-header {
+		.page-header,
+		.social-prompt {
 			grid-template-columns: repeat( 10, 1fr );
 
 			.entry-header,
 			.entry-content,
+			.entry-summary,
 			.entry-footer,
 			.nav-links,
 			.comment-respond,
@@ -459,6 +471,15 @@ nav.post-navigation {
 				max-width: none;
 			}
 		}
+
+
+		.social-prompt {
+			.follow-me {
+				grid-column: 2 / span 7;
+				max-width: none;
+			}
+		}
+
 
 		.comments-area {
 			.comment-meta,

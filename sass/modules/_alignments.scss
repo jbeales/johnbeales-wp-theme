@@ -15,7 +15,8 @@
 	@include center-block;
 }
 
-.entry-content {
+.entry-content,
+.entry-summary {
 	img.alignright,
 	img.alignleft,
 	img.aligncenter {

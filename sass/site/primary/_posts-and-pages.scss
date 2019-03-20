@@ -41,3 +41,25 @@
 		
 	}
 }
+
+.social-prompt {
+	margin: 2em auto;
+}
+
+.follow-me {
+//	text-align:center;
+	vertical-align: middle;
+	svg {
+		vertical-align: middle;
+		content:" ";
+		width:1.5rem;
+		height:1.5rem;
+		margin-right:0.25em;
+		
+		display:inline-block;
+
+		fill: getColor(neutral, 300);
+		position:relative;
+		top:-0.15rem;
+	}
+}
