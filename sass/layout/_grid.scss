@@ -363,12 +363,13 @@ nav.post-navigation {
 
 	.site-header {
 
-		box-shadow: 0 0 1.5vw 0.2vw getColor(neutral, 400);
+//		box-shadow: 0 0 1vw 0.1vw getColor(neutral, 600);
 
 
-
-		background-color: getColor( primary, 100 );
-		color: getColor( primary, 700 );
+	
+		//background-color: getColor( primary, 100 );
+		//background:linear-gradient(getColor( accent, 400 ), getColor(accent, 400 ) 10%, getColor(highlight, 600) 50%, getColor( primary, 800 ));
+		//color: getColor( primary, 700 );
 
 		a {
 			color: getColor( primary, 700 );
@@ -406,17 +407,17 @@ nav.post-navigation {
 
 			a {
 				&:link { 
-					color: getColor( primary, 800 );
+					color: getColor( primary, 500 );
 				}
 
 				&:visited {
-					color: getColor( primary, 700 );
+					color: getColor( primary, 500 );
 				}
 			}
 		}
 
 		.site-branding .site-title a {
-			color: getColor( primary, 700 );
+			color: getColor( primary, 300 );
 		}
 
 	}

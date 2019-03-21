@@ -27,6 +27,7 @@ get_header(); ?>
 
 		endwhile; // End of the loop.
 		?>
+		<div class="seal"><?php echo file_get_contents(get_theme_file_path('img/seal.svg')); ?></div>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

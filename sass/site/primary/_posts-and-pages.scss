@@ -63,3 +63,35 @@
 		top:-0.15rem;
 	}
 }
+
+.seal {
+	text-align:center;
+	padding:3rem 0;
+	svg {
+		width:25%;
+		fill:getColor(accent, 800);
+		stroke:getColor(primary, 600);
+	}
+
+
+	@include large-handheld {
+		svg {
+			width:15%;
+		}
+	}
+
+	@include desktop {
+		padding-top:6rem;
+		svg {
+			width:10%;
+		}
+	}
+
+	@include widescreen {
+		
+		svg {
+			
+			width:5%;
+		}
+	}
+}
