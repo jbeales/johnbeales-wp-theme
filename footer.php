@@ -15,7 +15,7 @@
 
 <footer id="colophon" class="site-footer">
 	<div class="site-info">
-		<p>Generally &copy; 2005 onwards John Beales. See the <a href="/about/">about page</a> for full details.</p>
+		<p>Generally &copy; 2005 onwards John Beales. See the <a href="/about/">about page</a> for full details. | <a href="/privacy/">Privacy Policy</a></p>
 	</div><!-- .site-info -->
 </footer><!-- #colophon -->
 
