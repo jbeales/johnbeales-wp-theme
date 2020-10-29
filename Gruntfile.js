@@ -9,8 +9,7 @@ module.exports = function(grunt) {
 		funcSafeProjectName = hostSafeProjectName.replace( '-', '_' );
 	}
 
-	const sass = require('node-sass');
-//	require('load-grunt-tasks')(grunt);
+	const sass = require('sass');
 
 
 	// Project configuration.
@@ -55,9 +54,7 @@ module.exports = function(grunt) {
 		            annotation: 'maps/css' // ...to the specified directory
 		        },
                 processors: [
-                    require('autoprefixer')({
-			          browsers: ['last 3 versions']
-			        }),
+                    require('autoprefixer')({}),
 			        require('cssnano')() // minify the result
                 ]
             },
@@ -247,7 +244,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-newer');
 	grunt.loadNpmTasks('grunt-browser-sync');
-	grunt.loadNpmTasks('grunt-postcss');
+	grunt.loadNpmTasks('@lodder/grunt-postcss');
 	grunt.loadNpmTasks('grunt-replace');
 	grunt.loadNpmTasks('grunt-rename');
 

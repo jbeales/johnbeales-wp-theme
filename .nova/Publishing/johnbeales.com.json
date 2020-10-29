@@ -1,0 +1,16 @@
+{
+  "identifier" : "C827AFAF-559C-475C-8863-6BA86BC6F466",
+  "ignoredFilePatterns" : [
+    ".nova",
+    "*.sublime-(project|workspace)",
+    "sftp-settings\\\\.json",
+    "sftp-config(-alt\\\\d?)?\\\\.json",
+    ".git",
+    "node_modules",
+    "Gruntfile.js",
+    "package.json"
+  ],
+  "remotePath" : "\/public_html_jb\/wp-content\/themes\/johnbeales",
+  "server" : "the-ballet.com - FTP",
+  "usesPublishing" : true
+}

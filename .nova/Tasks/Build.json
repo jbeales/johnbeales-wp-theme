@@ -1,0 +1,14 @@
+{
+  "actions" : {
+    "build" : {
+      "enabled" : true,
+      "script" : "grunt build"
+    },
+    "run" : {
+      "enabled" : true,
+      "script" : "grunt watch"
+    }
+  },
+  "identifier" : "6BAD7A98-D358-47C0-806C-1C1CCDAD8E33",
+  "persistent" : true
+}
