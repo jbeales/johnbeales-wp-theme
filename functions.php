@@ -123,6 +123,33 @@ function johnbeales_theme_version() {
 	return $version;
 }
 
+
+// Add the Book CPT to the main feed.
+add_filter( 'pre_get_posts', 'jb_add_books_to_main_feed' );
+
+function jb_add_books_to_main_feed( $query ) {
+	if ( $query->is_feed() ) {
+		
+		$post_types = $query->get('post_type');
+		if ( empty( $post_types ) ) {
+			$post_types = array();
+		} else if( ! is_array( $post_types ) ) {
+			$post_types = array( $post_types );
+		}
+		
+		
+		if ( ! in_array( 'post', $post_types ) ) {
+			$post_types[] = 'post';
+		}
+		$post_types[] = 'dt_book';
+		
+		$query->set( 'post_type', $post_types );
+		
+	}
+		
+	return $query;
+}
+
 /**
  * Custom template tags for this theme.
  */
