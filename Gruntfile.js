@@ -173,18 +173,6 @@ module.exports = function(grunt) {
 		    }
 	    },
 
-	    rename: {
-	        setupPotfile: {
-	            src: 'languages/_jb.pot',
-	            dest: 'languages/' + hostSafeProjectName + '.pot'
-	        },
-
-	        mergeUpstream: {
-	        	src: 'languages/_s.pot',
-	        	dest: 'languages/_jb.pot'
-	        }
-	    },
-
 		watch: {
 			scripts: {
 				files: ['js/src/*.js'],
@@ -246,14 +234,13 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-browser-sync');
 	grunt.loadNpmTasks('@lodder/grunt-postcss');
 	grunt.loadNpmTasks('grunt-replace');
-	grunt.loadNpmTasks('grunt-rename');
+
 
 	// Default task(s).
 	grunt.registerTask('default', [ 'browserSync', 'watch'] );
 	grunt.registerTask('css', [ 'sass', 'postcss'] );
 	grunt.registerTask( 'build', ['sass', 'postcss', 'uglify'] );
-	grunt.registerTask('setup-project', ['replace:setupMain', 'rename:setupPotfile' ] );
-	grunt.registerTask('merge-upstream', ['replace:handlUpstreamMerge', 'rename:mergeUpstream'] )
+	
 
 
 	var fs = require('fs');
