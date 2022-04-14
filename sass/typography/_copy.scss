@@ -57,8 +57,10 @@ big {
 	@include font-size(1.2);
 
 	@include large-handheld {
-		@include font-size(1);
+		@include font-size(1.2);
 	}
+	
+	font-weight:400;
 
 
 	& > p:first-of-type {
@@ -69,11 +71,12 @@ big {
 		&::first-letter {
 			font-size:3em;
 			float:left;
+			vertical-align: top;
 			line-height:1em;
 			font-weight:500;
 			initial-letter:2;
 			-webkit-initial-letter:2;
-			padding-right:0.1em;
+			padding-right:0.05em;
 		}
 	}
 }
