@@ -209,7 +209,8 @@ nav.post-navigation,
 
 	
 
-	.comment-respond {
+	.comment-respond,
+	.akismet_comment_form_privacy_notice {
 		@extend %full-width-column;
 		max-width: $text__line-length;
 
@@ -458,6 +459,7 @@ nav.post-navigation {
 			.entry-footer,
 			.nav-links,
 			.comment-respond,
+			.akismet_comment_form_privacy_notice,
 			.comments-title,
 			.comment-list {
 				grid-column: 2 / span 7;

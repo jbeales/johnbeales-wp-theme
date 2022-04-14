@@ -54,7 +54,7 @@ big {
 
 .entry-content,
 .entry-summary {
-	@include font-size(1.2);
+	@include font-size(1.3);
 
 	@include large-handheld {
 		@include font-size(1.2);

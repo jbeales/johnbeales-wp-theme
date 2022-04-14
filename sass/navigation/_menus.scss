@@ -2,6 +2,7 @@
 	
 	
 	@extend %full-width-column;
+	@include font-size(1.2);
 
 	line-height:1em;
 	
@@ -80,13 +81,16 @@
 }
 
 @include large-handheld {
-	.main-navigation li {
+	.main-navigation {
+		@include font-size(1);
+		li {
 		
-		padding-right:1.5em;
-
-		@supports( display:grid ) {
-			padding-right:0;
-			padding-left:3vw;
+			padding-right:1.5em;
+	
+			@supports( display:grid ) {
+				padding-right:0;
+				padding-left:3vw;
+			}
 		}
 	}
 }
