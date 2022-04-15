@@ -70,7 +70,7 @@
 	svg {
 		width:25%;
 		fill:getColor(primary,800);
-		stroke:getColor(primary, 300);
+		stroke:adjust-color($color:getColor(primary, 300), $alpha:-0.7);
 		filter: drop-shadow(2px 2px 2px adjust-color($color:getColor(accent, 300), $alpha:-0.8));	
 	}
 
