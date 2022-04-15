@@ -21,6 +21,10 @@
 		display:block;
 		margin: 1em auto;
 	}
+	
+	.comment-form-cookies-consent label {
+		width:auto;
+	}
 
 	@include large-handheld {
 		input[type="submit"] {
