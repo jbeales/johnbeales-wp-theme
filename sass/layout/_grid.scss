@@ -72,14 +72,6 @@ nav.post-navigation,
 		@extend %full-width-column;
 	}
 
-
-/*
-	.site-branding,
-	.main-navigation {
-		grid-column: 1 / span ($grid-columns - 2);
-	}
-
-	*/
 }
 
 
@@ -92,6 +84,21 @@ nav.post-navigation,
 	.content-area {
 		grid-column: 1 / span $grid-columns;
 	}
+	
+	.widget-area {
+		margin-top:2em;
+		grid-column: 1 / span $grid-columns;
+		@extend %layout-container;
+		
+		.widget {
+			@extend %full-width-column;
+			
+			.wp-block-social-links {
+				margin-bottom:0;
+			}
+		}
+	}
+
 
 
 	.page-header h1,
@@ -271,8 +278,13 @@ nav.post-navigation {
 .site-footer {
 	grid-area:footer;
 
-	.site-info {
+	.site-info,
+	.widget-area {
 		@extend %full-width-column;
+	}
+	
+	.widget-area {
+		align-self: end;
 	}
 }
 
@@ -429,7 +441,8 @@ nav.post-navigation {
 		z-index:1001;
 
 
-		.site-info {
+		.site-info,
+		.widget-area {
 			grid-column: 2 / span 10;
 			color: getColor( primary, 300 );
 		}

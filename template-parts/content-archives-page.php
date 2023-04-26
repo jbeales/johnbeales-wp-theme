@@ -8,12 +8,7 @@
  */
 
 ?>
-
-
-
 	<div class="entry-content">
-
-
 		<p class="tag_cloud">
 			<?php wp_tag_cloud(''); ?>
 		</p>
